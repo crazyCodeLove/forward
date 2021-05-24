@@ -17,7 +17,7 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.a
 
 /**
  * <p>
- *     URL 删除第一个 part
+ * URL 删除第一个 part
  * </p>
  * author pczhao <br/>
  * date  2021/5/23 16:24

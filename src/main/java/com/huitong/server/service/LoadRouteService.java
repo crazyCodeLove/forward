@@ -6,7 +6,9 @@ import com.huitong.server.service.bo.RouteClassified;
 import com.huitong.server.util.CalendarUtil;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -42,13 +44,13 @@ public class LoadRouteService {
         dynamicRouteService.deleteRouteBatch(routeClassified.getInValidRouteList());
         dynamicRouteService.addRouteBatch(routeClassified.getActivateRouteList());
         patternTimeSet.clear();
-        for (RouteConfig config:routeConfigList) {
+        for (RouteConfig config : routeConfigList) {
             patternTimeSet.add(buildKey(config));
         }
     }
 
     private boolean routeChanged(List<RouteConfig> routeConfigList) {
-        for (RouteConfig config:routeConfigList) {
+        for (RouteConfig config : routeConfigList) {
             if (!patternTimeSet.contains(buildKey(config))) {
                 return true;
             }

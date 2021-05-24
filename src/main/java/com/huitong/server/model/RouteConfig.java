@@ -36,11 +36,11 @@ public class RouteConfig {
     public RouteDefinition toRouteDefinition() throws URISyntaxException {
         RouteDefinition routeDefinition = new RouteDefinition();
         routeDefinition.setId(id);
-        List<PredicateDefinition> predicates=new ArrayList<>();
-        PredicateDefinition predicate=new PredicateDefinition();
+        List<PredicateDefinition> predicates = new ArrayList<>();
+        PredicateDefinition predicate = new PredicateDefinition();
         //注意name
         predicate.setName("Path");
-        predicate.addArg("pattern",pattern);
+        predicate.addArg("pattern", pattern);
         predicates.add(predicate);
         routeDefinition.setPredicates(predicates);
 

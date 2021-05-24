@@ -4,8 +4,6 @@ import com.huitong.server.model.RouteConfig;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.util.CollectionUtils;
@@ -27,8 +25,8 @@ import java.util.List;
 public class RouteClassified {
 
     private List<RouteConfig> routeConfigList;
-    private List<RouteDefinition> activateRouteList ;
-    private List<RouteDefinition> inValidRouteList ;
+    private List<RouteDefinition> activateRouteList;
+    private List<RouteDefinition> inValidRouteList;
 
     public void classifyRoute() {
         if (CollectionUtils.isEmpty(routeConfigList)) {
@@ -37,7 +35,7 @@ public class RouteClassified {
         if (activateRouteList == null) {
             activateRouteList = new ArrayList<>();
         }
-        if(inValidRouteList == null) {
+        if (inValidRouteList == null) {
             inValidRouteList = new ArrayList<>();
         }
         for (RouteConfig config : routeConfigList) {
@@ -46,14 +44,14 @@ public class RouteClassified {
                 try {
                     activateRouteList.add(config.toRouteDefinition());
                 } catch (Exception e) {
-                    log.error(e.getMessage(),e);
+                    log.error(e.getMessage(), e);
                 }
             } else if (config.getStatus() == 0) {
                 // 失效的路由配置
                 try {
                     inValidRouteList.add(config.toRouteDefinition());
                 } catch (Exception e) {
-                    log.error(e.getMessage(),e);
+                    log.error(e.getMessage(), e);
                 }
             }
         }
