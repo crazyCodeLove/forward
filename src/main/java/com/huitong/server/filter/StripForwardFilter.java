@@ -23,7 +23,7 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.a
  * date  2021/5/23 16:24
  */
 
-@Component
+//@Component
 public class StripForwardFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
